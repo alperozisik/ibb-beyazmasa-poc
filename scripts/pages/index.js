@@ -1,1 +1,1 @@
-include('pages/page1.js');
+require('pages/mainpage.js');

@@ -1,4 +1,4 @@
-/* globals lang */
+/* globals lang, initRequire*/
 include('i18n/i18n.js');
 Application.onStart = Application_OnStart;
 Application.onUnhandledError = Application_OnError;
@@ -9,8 +9,10 @@ Application.onUnhandledError = Application_OnError;
  * @this Application
  */
 function Application_OnStart(e) {
-	include("pages/index.js");
-	Pages.page1.show();
+	include("libs/Smartface/require.js");
+	initRequire("pages/index.js");
+
+	Pages.mainpage.show();
 }
 
 function Application_OnError(e) {
