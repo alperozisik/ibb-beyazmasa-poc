@@ -34,7 +34,7 @@
         oReq.setRequestHeader("Accept", "application/json");
         oReq.setRequestHeader("Authorization", "Basic MTk2MDA0MTg2NzI6MjM3NTY3ODkw");
         oReq.setRequestHeader("Content-Type", "application/json");
-        oReq.open("GET", "https://osb-mwwebgate.ibb.gov.tr/External/IBBMobilBeyazmasaWebServisleri/IBBMobilAnonimBasvuruSorgula/ProxyService/IBBMobilAnonimBasvuruSorgulaRESTPS/IBBMobilServiceRequestQuery?contactId=1-QKBL1W&password=237567890&tckn=19600418672");
+        oReq.open("GET", "https://osb-mwwebgate.ibb.gov.tr/External/IBBMobilBeyazmasaWebServisleri/IBBMobilAnonimBasvuruSorgula/ProxyService/IBBMobilAnonimBasvuruSorgulaRESTPS/IBBMobilServiceRequestQuery?contactId=1-QKBL1W&password=237567890&tckn=19600418672", true);
         oReq.send();
     }
     
