@@ -25,7 +25,7 @@
     function mainpage_onShow() {
         //type your here code
     }
-    
+
     var cntMain = new SMF.UI.Container({
         width: "100%",
         height: "100%",
@@ -38,7 +38,7 @@
         horizontalGap: 0
     });
     mainpage.add(cntMain);
-    
+
 
     var imgPickConfig = require("../util/imgpick");
 
@@ -52,35 +52,48 @@
     cntMain.add(imgSlider);
     imgSlider.height = imgSlider.width;
 
+
+    // var cntForButtons = new SMF.UI.Container({
+    //     top: imgSlider.top + imgSlider.height,
+    //     left: 0,
+    //     width: "100%",
+    //     borderWidth: 0
+    // });
+    // cntForButtons.height = Device.screenHeight - cntForButtons.height;
+
     var myButtonTemplate = {
         fillColor: "blue",
         textColor: "#DDDDDD",
         width: "80%",
         height: "80%",
         left: "10%",
+        top: "10%",
         pressedFillColor: "red"
     };
-    
+
     var myButtonContainerTemplate = {
         width: "100%",
         height: "15%",
         borderWidth: 0
     };
-    
-    
+
+
     var cntBYeniBaşvuru = new SMF.UI.Container(myButtonContainerTemplate);
     cntMain.add(cntBYeniBaşvuru);
 
-    
+
     var cntBBaşvuruListesi = new SMF.UI.Container(myButtonContainerTemplate);
     cntMain.add(cntBBaşvuruListesi);
-    
-    setTimeout(function() {
+
     var btnYeniBasvuru = new SMF.UI.TextButton(myButtonTemplate);
-    cntBYeniBaşvuru.add(cntBYeniBaşvuru);
+    cntBYeniBaşvuru.add(btnYeniBasvuru);
     btnYeniBasvuru.text = "Yeni Başvuru";
     var btnBasvuruListesi = new SMF.UI.TextButton(myButtonTemplate);
     cntBBaşvuruListesi.add(btnBasvuruListesi);
     btnBasvuruListesi.text = "Başvuru Listesi";
-    }, 3000);
+    if (Device.deviceOS === "Android") {
+        btnYeniBasvuru.effects.ripple.enabled =
+            btnBasvuruListesi.effects.ripple.enabled = true;
+    }
+
 })();
