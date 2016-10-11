@@ -91,6 +91,10 @@
     var btnBasvuruListesi = new SMF.UI.TextButton(myButtonTemplate);
     cntBBaşvuruListesi.add(btnBasvuruListesi);
     btnBasvuruListesi.text = "Başvuru Listesi";
+    btnBasvuruListesi.onPressed = function(e) {
+      Pages.basvurulistesi.show(SMF.UI.MotionEase.PLAIN, SMF.UI.TransitionEffect.RIGHTTOLEFT, 
+      SMF.UI.TransitionEffectType.PUSH, false, false, 300);  
+    };
     if (Device.deviceOS === "Android") {
         btnYeniBasvuru.effects.ripple.enabled =
             btnBasvuruListesi.effects.ripple.enabled = true;
