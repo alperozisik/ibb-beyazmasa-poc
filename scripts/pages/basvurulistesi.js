@@ -55,6 +55,7 @@
         left: 0,
         onRowRender: rowRender
     });
+    basvurulistesi.add(rbBlist);
     rbBlist.itemTemplate.height = "40dp";
     
     var lblBasvuruNo = new SMF.UI.Label({
@@ -67,15 +68,15 @@
     rbBlist.itemTemplate.add(lblBasvuruNo);
 
 
-
+    var response;
     function reqListener() {
-        var response = JSON.parse(oReq.responseText);
+        response = JSON.parse(oReq.responseText);
         rbBlist.dataSource = response.ibbMobilServiceRequest;
         rbBlist.refresh();
     }
     
     function rowRender(e) {
-        var dataItem = rbBlist.dataSource[e.rowIndex];
+        var dataItem = response[e.rowIndex];
         lblBasvuruNo.text = dataItem.sRNumber;
     }
 
