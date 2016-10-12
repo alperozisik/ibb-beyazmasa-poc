@@ -1,9 +1,9 @@
 {
 	"info": {
-		"name": "Smartface Empty Workspace",
-		"company": "Smartface User",
+		"name": "İBB Beyaz Masa",
+		"company": "İBB",
 		"webSite": "https://www.smartface.io",
-		"version": "1.0.0",
+		"version": "1.1.0",
 		"runtimeVersion": "1100",
 		"description": "This is Smartface's default empty project. You can click to Run on Device button to see it on your device."
 	},
@@ -60,7 +60,7 @@
 					"facebookios": {
 						"url": "https://az793023.vo.msecnd.net/smartface-bin/plugins/Facebook/iOS/2.0.0/facebookios.zip",
 						"path": "plugins/iOS/facebookios.zip",
-						"active": false
+						"active": true
 					},
 					"googleanalyticsios": {
 						"url": "https://az793023.vo.msecnd.net/smartface-bin/plugins/GoogleAnalytics/iOS/2.0.0/googleanalyticsios.zip",

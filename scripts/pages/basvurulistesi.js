@@ -56,28 +56,41 @@
         onRowRender: rowRender
     });
     basvurulistesi.add(rbBlist);
-    rbBlist.itemTemplate.height = "40dp";
+    rbBlist.itemTemplate.height = "70dp";
     
     var lblBasvuruNo = new SMF.UI.Label({
         left: "8dp",
-        height: "15dp",
+        height: "28dp",
         top: "8dp",
         width: "100%",
         touchEnabled: false
     });
     rbBlist.itemTemplate.add(lblBasvuruNo);
+    lblBasvuruNo.fontColor = "blue";
+    lblBasvuruNo.font.size = "10pt";
+    
+    var lblDescription = new SMF.UI.Label({
+        left: "8dp",
+        top: "36dp",
+        height: "20dp",
+        width: "98%",
+        touchEnabled: false
+    });
+    rbBlist.itemTemplate.add(lblDescription);
+    lblDescription.font.size = "6pt";
 
 
     var response;
     function reqListener() {
         response = JSON.parse(oReq.responseText);
-        rbBlist.dataSource = response.ibbMobilServiceRequest;
+        rbBlist.dataSource = response.listOfIbbMobilServiceRequestIo.ibbMobilServiceRequest;
         rbBlist.refresh();
     }
     
     function rowRender(e) {
-        var dataItem = response[e.rowIndex];
+        var dataItem = response.listOfIbbMobilServiceRequestIo.ibbMobilServiceRequest[e.rowIndex];
         lblBasvuruNo.text = dataItem.sRNumber;
+        lblDescription.text = dataItem.description;
     }
 
 })();

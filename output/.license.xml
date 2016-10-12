@@ -1,10 +1,10 @@
 <ApplicationPackageLicenses>
     <ApplicationPackageLicense>
-        <CompanyName>Smartface User</CompanyName>
-        <LicenseName>Smartface Empty Workspace</LicenseName>
+        <CompanyName>İBB</CompanyName>
+        <LicenseName>İBB Beyaz Masa</LicenseName>
         <SASVersion>v5.0.0</SASVersion>
-        <CreateDate>02.09.2016 15:27:45</CreateDate>
-        <ExpireDate>00.09.2026 15:27:45</ExpireDate>
+        <CreateDate>03.09.2016 12:01:37</CreateDate>
+        <ExpireDate>01.09.2026 12:01:37</ExpireDate>
         <LicenseType>Professional</LicenseType>
         <PackageType>iOS</PackageType>
         <PackageName>io.smartface.demo</PackageName>
@@ -18,11 +18,11 @@
         <SignData></SignData>
     </ApplicationPackageLicense>
     <ApplicationPackageLicense>
-        <CompanyName>Smartface User</CompanyName>
-        <LicenseName>Smartface Empty Workspace</LicenseName>
+        <CompanyName>İBB</CompanyName>
+        <LicenseName>İBB Beyaz Masa</LicenseName>
         <SASVersion>v5.0.0</SASVersion>
-        <CreateDate>02.09.2016 15:27:45</CreateDate>
-        <ExpireDate>00.09.2026 15:27:45</ExpireDate>
+        <CreateDate>03.09.2016 12:01:37</CreateDate>
+        <ExpireDate>01.09.2026 12:01:37</ExpireDate>
         <LicenseType>Professional</LicenseType>
         <PackageType>Android</PackageType>
         <PackageName>io.smartface.demo</PackageName>

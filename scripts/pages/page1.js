@@ -18,10 +18,11 @@
 		left: "15%",
 		top: "70%",
 		width: "70%",
-		height: "10%"
+		height: "10%",
+		fillColor: "red"
 	});
 	(Device.deviceOS === "Android") && (btn.effects.ripple.enabled = true);
-	
+
 	page1.add(btn);
 
 	var lbl = new SMF.UI.Label({
@@ -59,13 +60,6 @@
 			Application.exit();
 		}
 	}
-
-	/**
-	 * Creates action(s) that are run when the page is appeared
-	 * @param {EventArguments} e Returns some attributes about the specified functions
-	 * @this Pages.Page1
-	 */
-	function page1_onShow() {}
 
 	/**
 	 * Creates action(s) that are run when the object is pressed from device's screen.
@@ -125,5 +119,70 @@
 			}
 		}
 		return number + suffix;
+	}
+
+
+	var waitingDialog = new SMF.UI.Rectangle({
+		top: 0,
+		left: 0,
+		width: '100%',
+		height: '100%',
+		visible: false,
+		fillColor: SMF.UI.Color.BLACK,
+		alpha: "0.6%"
+	});
+
+	page1.add(waitingDialog);
+
+	var waitingIndicator = new SMF.UI.ActivityIndicator({
+		visible: false
+	});
+
+	page1.add(waitingIndicator);
+
+	//page onShow event is used to implementing remote app update codes
+	/**
+	 * Creates action(s) that are run when the page is appeared
+	 * @param {EventArguments} e Returns some attributes about the specified functions
+	 * @this Pages.Page1
+	 */
+	function page1_onShow() {
+		Application.checkUpdate(function(err, result) {
+			if (err) {
+				//Checking for update is failed
+				alert("check update error: " + err);
+			}
+			else {
+				//There is a valid update. We can show the meta info to inform our app user.
+				alert(JSON.stringify(result.meta));
+				//There is an update waiting to be downloaded. Let's download it.
+				result.download(function(err, result) {
+					if (err) {
+						//Download failed
+						alert("download error: " + err);
+					}
+					else {
+						//All files are received, we'll trigger an update.
+						result.updateAll(function(err) {
+							if (err) {
+								//Updating the app with downloaded files failed
+								alert("update all error: " + err);
+							}
+							else {
+								//make Dialog objects visible to inform user about the update.
+								waitingDialog.visible = true;
+								waitingIndicator.visible = true;
+								//After three seconds, application will be restart.
+								setTimeout(function() {
+									//After that the app will be restarted automatically to apply the new updates
+									Application.restart();
+								}, 3000);
+
+							}
+						});
+					}
+				});
+			}
+		});
 	}
 })();
